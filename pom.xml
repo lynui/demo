@@ -1,0 +1,619 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>self.demo</groupId>
+	<artifactId>demo-parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<modules>
+		<module>demo-framework</module>
+		<module>demo-web</module>
+		<module>demo-dao</module>
+	</modules>
+	<name>demo-parent</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<org.apache.cxf.version>2.6.1</org.apache.cxf.version>
+
+		<org.springframework.version>3.2.17.RELEASE</org.springframework.version>
+		<fastjson_version>1.2.17</fastjson_version>
+		<tomcat.sit.url></tomcat.sit.url>
+		<tomcat.sit.username></tomcat.sit.username>
+		<tomcat.sit.password></tomcat.sit.password>
+		<tomcat.test.url></tomcat.test.url>
+		<tomcat.test.username></tomcat.test.username>
+		<tomcat.test.password></tomcat.test.password>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>5.1.18</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>servlet-api</artifactId>
+				<version>2.5</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-beans</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-expression</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-aop</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjweaver</artifactId>
+				<version>1.7.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib</artifactId>
+				<version>2.2.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>asm</groupId>
+				<artifactId>asm</artifactId>
+				<version>3.3.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context-support</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-orm</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-oxm</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-webmvc</artifactId>
+				<version>${org.springframework.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-test</artifactId>
+				<version>${org.springframework.version}</version>
+				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-redis</artifactId>
+				<version>1.7.1.RELEASE</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>dubbo</artifactId>
+				<version>2.5.3</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.springframework</groupId>
+						<artifactId>spring</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-frontend-simple</artifactId>
+				<version>${org.apache.cxf.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.cxf</groupId>
+				<artifactId>cxf-rt-transports-http</artifactId>
+				<version>${org.apache.cxf.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.googlecode.xmemcached</groupId>
+				<artifactId>xmemcached</artifactId>
+				<version>1.3.6</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.caucho</groupId>
+				<artifactId>hessian</artifactId>
+				<version>4.0.7</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.zookeeper</groupId>
+				<artifactId>zookeeper</artifactId>
+				<version>3.4.6</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.github.sgroschupf</groupId>
+				<artifactId>zkclient</artifactId>
+				<version>0.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>3.2.6</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>1.2.0</version>
+			</dependency>
+
+			<dependency>
+				<groupId>c3p0</groupId>
+				<artifactId>c3p0</artifactId>
+				<version>0.9.1.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
+				<version>1.7.2</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.16</version>
+			</dependency>
+
+			<dependency>
+				<groupId>redis.clients</groupId>
+				<artifactId>jedis</artifactId>
+				<version>2.8.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>dom4j</groupId>
+				<artifactId>dom4j</artifactId>
+				<version>1.6.1</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jstl</artifactId>
+				<version>1.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>javax.servlet</groupId>
+				<artifactId>jsp-api</artifactId>
+				<version>2.0</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>xerces</groupId>
+				<artifactId>xercesImpl</artifactId>
+				<version>2.6.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.5.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpcore</artifactId>
+				<version>4.4.4</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>1.8.0</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-lang</groupId>
+				<artifactId>commons-lang</artifactId>
+				<version>2.3</version>
+			</dependency>
+			<dependency>
+				<groupId>com.belerweb</groupId>
+				<artifactId>pinyin4j</artifactId>
+				<version>2.5.1</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-core-lgpl</artifactId>
+				<version>1.9.9</version>
+			</dependency>
+			<dependency>
+				<groupId>org.codehaus.jackson</groupId>
+				<artifactId>jackson-mapper-lgpl</artifactId>
+				<version>1.9.9</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hamcrest</groupId>
+				<artifactId>hamcrest-core</artifactId>
+				<version>1.3</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.mockito</groupId>
+				<artifactId>mockito-core</artifactId>
+				<version>1.9.5</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>self.demo</groupId>
+				<artifactId>demo-framework</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>self.demo</groupId>
+				<artifactId>demo-web</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson_version}</version>
+            </dependency>
+            <dependency>
+			    <groupId>javax.mail</groupId>
+			    <artifactId>mail</artifactId>
+			     <version>1.5.0-b01</version>
+			</dependency>
+			<dependency>
+			    <groupId>commons-email</groupId>
+			    <artifactId>commons-email</artifactId>
+			     <version>1.1</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+		</profile>
+		<profile>
+			<id>sit</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<distributionManagement>
+				<repository>
+					<id>snapshots</id>
+					<name>Wanda Repositories Group</name>
+					<url>http://work.dianshang.wanda.cn/nexus/content/groups/public/</url>
+				</repository>
+			</distributionManagement>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<artifactId>maven-antrun-plugin</artifactId>
+							<version>1.8</version>
+							<executions>
+								<execution>
+									<id>copy-properties</id>
+									<phase>process-resources</phase>
+									<goals>
+										<goal>run</goal>
+									</goals>
+								</execution>
+							</executions>
+							<configuration>
+								<tasks>
+									<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+										classpathref="maven.plugin.classpath" />
+									<available file="${project.build.outputDirectory}/jdbc"
+										type="dir" property="jdbc.exist" />
+									<available file="${project.build.outputDirectory}/redis"
+										type="dir" property="redis.exist" />
+									<if>
+										<isset property="jdbc.exist" />
+										<then>
+											<echo>jdbc copy starting</echo>
+											<copy todir="${project.build.outputDirectory}/jdbc"
+												overwrite="true">
+												<fileset dir="../properties/sit/jdbc" />
+											</copy>
+											<echo>jdbc copy ending</echo>
+										</then>
+										<else>
+											<echo>no jdbc to copy</echo>
+										</else>
+									</if>
+									<if>
+										<isset property="redis.exist" />
+										<then>
+											<echo>redis copy starting</echo>
+											<copy todir="${project.build.outputDirectory}/redis"
+												overwrite="true">
+												<fileset dir="../properties/sit/redis" />
+											</copy>
+											<echo>redis copy ending</echo>
+										</then>
+										<else>
+											<echo>no redis to copy</echo>
+										</else>
+									</if>
+								</tasks>
+							</configuration>
+							<dependencies>
+								<dependency>
+									<groupId>ant-contrib</groupId>
+									<artifactId>ant-contrib</artifactId>
+									<version>20020829</version>
+								</dependency>
+							</dependencies>
+						</plugin>
+
+						<!-- <plugin> <groupId>org.apache.tomcat.maven</groupId> <artifactId>tomcat7-maven-plugin</artifactId> 
+							<version>2.1</version> <configuration> <tomcat-url>${tomcat.sit.url}</tomcat-url> 
+							<username>${tomcat.test.username}</username> <password>${tomcat.test.password}</password> 
+							<path>/${finalName}</path> </configuration> </plugin> -->
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+
+		<profile>
+			<id>test</id>
+			<distributionManagement>
+				<repository>
+					<id>snapshots</id>
+					<name>Wanda Repositories Group</name>
+					<url>http://work.dianshang.wanda.cn/nexus/content/groups/public/</url>
+				</repository>
+			</distributionManagement>
+			<build>
+				<pluginManagement>
+					<plugins>
+						<plugin>
+							<artifactId>maven-antrun-plugin</artifactId>
+							<version>1.8</version>
+							<executions>
+								<execution>
+									<id>copy-properties</id>
+									<phase>process-resources</phase>
+									<goals>
+										<goal>run</goal>
+									</goals>
+								</execution>
+							</executions>
+							<configuration>
+								<tasks>
+									<taskdef resource="net/sf/antcontrib/antcontrib.properties"
+										classpathref="maven.plugin.classpath" />
+									<available file="${project.build.outputDirectory}/jdbc"
+										type="dir" property="jdbc.exist" />
+									<available file="${project.build.outputDirectory}/redis"
+										type="dir" property="redis.exist" />
+									<if>
+										<isset property="jdbc.exist" />
+										<then>
+											<echo>jdbc copy starting</echo>
+											<copy todir="${project.build.outputDirectory}/jdbc"
+												overwrite="true">
+												<fileset dir="../properties/test/jdbc" />
+											</copy>
+											<echo>jdbc copy ending</echo>
+										</then>
+										<else>
+											<echo>no jdbc to copy</echo>
+										</else>
+									</if>
+									<if>
+										<isset property="redis.exist" />
+										<then>
+											<echo>redis copy starting</echo>
+											<copy todir="${project.build.outputDirectory}/redis"
+												overwrite="true">
+												<fileset dir="../properties/test/redis" />
+											</copy>
+											<echo>redis copy ending</echo>
+										</then>
+										<else>
+											<echo>no redis to copy</echo>
+										</else>
+									</if>
+								</tasks>
+							</configuration>
+							<dependencies>
+								<dependency>
+									<groupId>ant-contrib</groupId>
+									<artifactId>ant-contrib</artifactId>
+									<version>20020829</version>
+								</dependency>
+							</dependencies>
+						</plugin>
+
+						<!-- <plugin> <groupId>org.apache.tomcat.maven</groupId> <artifactId>tomcat7-maven-plugin</artifactId> 
+							<version>2.1</version> <configuration> <tomcat-url>${tomcat.test.url}</tomcat-url> 
+							<username>${tomcat.test.username}</username> <password>${tomcat.test.password}</password> 
+							<path>/${finalName}</path> </configuration> </plugin> -->
+					</plugins>
+				</pluginManagement>
+			</build>
+		</profile>
+	</profiles>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.7</version>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.4</version>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.6</version>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>3.0.0</version>
+					<executions>
+						<execution>
+							<phase>compile</phase>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<attach>true</attach>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<version>2.8.2</version>
+				</plugin>
+
+				<plugin>
+					<groupId>org.mybatis.generator</groupId>
+					<artifactId>mybatis-generator-maven-plugin</artifactId>
+					<version>1.3.2</version>
+					<configuration>
+						<verbose>true</verbose>
+						<overwrite>true</overwrite>
+						<configurationFile>src/main/resources/generatorConfig.xml</configurationFile>
+					</configuration>
+					<dependencies>
+						<dependency>
+							<groupId>mysql</groupId>
+							<artifactId>mysql-connector-java</artifactId>
+							<version>5.1.18</version>
+						</dependency>
+					</dependencies>
+				</plugin>
+
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.mybatis.generator</groupId>
+										<artifactId>mybatis-generator-maven-plugin</artifactId>
+										<versionRange>[1.3.2,)</versionRange>
+										<goals>
+											<goal>generate</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore />
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.12.4</version>
+				</plugin>
+
+				<plugin>
+					<artifactId>maven-surefire-report-plugin</artifactId>
+					<version>2.12.2</version>
+					<executions>
+						<execution>
+							<id>surefire-report</id>
+							<phase>test</phase>
+							<goals>
+								<goal>report</goal>
+							</goals>
+						</execution>
+					</executions>
+					<configuration>
+						<outputName>surefire-report</outputName>
+						<reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+						<outputDirectory>${project.build.directory}/surefire-reports</outputDirectory>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+	</build>
+</project>

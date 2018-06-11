@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 数据库驱动包位置 -->
+	<classPathEntry location="mysql-connector-java-5.1.39.jar" />
+
+	<!-- 配置 -->
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<!-- 是否去除自动生成的注释：true：是，false：否 -->
+		<commentGenerator>
+			<property name="suppressAllComments" value="false" />
+		</commentGenerator>
+		<!-- 数据库链接URL、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" 
+			connectionURL="jdbc:mysql://10.209.44.12:10043/riskcenter?characterEncoding=utf-8" 
+			userId="riskcenter" 
+			password="riskcenter">
+		</jdbcConnection>
+		<!--  
+			默认false：把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer  
+			true：把JDBC DECIMAL 和 NUMERIC 类型解析为java.math.BigDecimal  
+		-->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="com.wanda.risk.common.dal.bean" targetProject="../src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		<!-- 生成的映射文件包名和位置 -->
+		<sqlMapGenerator targetPackage="com.wanda.risk.common.dal.mapping" targetProject="../src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.wanda.risk.common.dal.dao" targetProject="../src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+
+		<!--<table tableName="test_case" domainObjectName="TestCase" enableSelectByExample="false" enableDeleteByExample="false"-->
+		<!--enableCountByExample="false" enableUpdateByExample="false"/>-->
+		<!--<table tableName="test_collection" domainObjectName="TestCollection" enableSelectByExample="false" enableDeleteByExample="false"-->
+		<!--enableCountByExample="false" enableUpdateByExample="false"/>-->
+		<!--<table tableName="test_relation" domainObjectName="TestRelation" enableSelectByExample="false" enableDeleteByExample="false"-->
+		<!--enableCountByExample="false" enableUpdateByExample="false"/>-->
+
+
+		<!-- <table tableName="sensitive_word_history" domainObjectName="SensitiveWordHistoryPO"/> -->
+		<!-- 
+		<table tableName="CC_RETURNCODE_RELATION" domainObjectName="ReturncodeRelPO"/> 
+		<table tableName="risk_member_label" domainObjectName="RiskMemberLabelPO" />
+		
+		-->
+		
+<!-- 		<table tableName="risk_bigdata_mapping" domainObjectName="BigdataMappingPO"/> 
+		
+		<table tableName="CC_GROOVY_SCRIPT" domainObjectName="GroovyScriptPO"/>-->
+		<table tableName="CC_PIPELINE" domainObjectName="PipelinePO"/>
+		<!-- 
+		<table tableName="CC_ROUTER_RULE" domainObjectName="RouterRulePO"/>
+		<table tableName="T_CHECK_POINT" domainObjectName="CheckPointPO" />
+		<table tableName="T_ATTRIBUTE" domainObjectName="AttributePO" />
+		<table tableName="T_CHECK_POINT_ATTRIBUTE" domainObjectName="CheckPointAttributePO" />
+		<table tableName="T_CHECK_POINT_RULE" domainObjectName="CheckPointRulePO" />
+ 		 -->
+	</context>
+</generatorConfiguration>
